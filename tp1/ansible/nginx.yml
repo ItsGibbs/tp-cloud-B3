@@ -1,6 +1,6 @@
 ---
 - name: Deploy nginx server and configure HTTPS
-  host: tp1
+  hosts: web
   become: true
 
   tasks:
@@ -9,11 +9,11 @@
       name: nginx
       state: present
 
-  - name: Generate SSL certificate
+  - name: SSL certificate
     openssl_certificate:
-      path: /etc/pki/tls/certs/tp1_site.crt
-      key_path: /etc/pki/tls/private/tp1_site.key
-      provider: selfsigned
+      path: /etc/pki/tls/certs/server.crt
+      privatekey_path: /etc/pki/tls/private/server.key
+      provider: assertonly
       subject:
         CN: "{{ ansible_fqdn }}"
 
@@ -25,16 +25,8 @@
 
   - name: Create index.html file
     copy:
+      src: index.html
       dest: /var/www/tp1_site/index.html
-      content: |
-        <html>
-          <head>
-            <title>Welcome to TP1 Site</title>
-          </head>
-          <body>
-            <h1>Hello from TP1 Site!</h1>
-          </body>
-        </html>
 
   - name: Deploy NGINX configuration file
     copy:
