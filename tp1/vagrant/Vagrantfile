@@ -1,0 +1,88 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  #config.vm.box = "generic/rocky9"
+
+  #config.vm.box_check_update = false
+
+  config.vm.define "vm1" do |vm1|
+    vm1.vm.box = "generic/rocky9"
+    
+    vm1.vm.box_check_update = false
+    
+    vm1.vm.network "private_network", ip: "10.1.1.11"
+    
+    vm1.vm.synced_folder ".", "/vagrant", disabled: true
+
+    vm1.vm.provider "virtualbox" do |vb|
+
+      vb.gui = true
+
+      vb.memory = "1024"
+    end
+
+    vm1.vm.provision "shell", path: "setup.sh"
+
+    vm1.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/id_rsa.pub"
+
+
+    #vm1.vm.provision "shell" do |s|
+    #  ssh_pub_key = File.readlines("~/.ssh/id_rsa.pub").first.strip
+    #  s.inline = <<-SHELL
+    #  echo #{ssh_pub_key} >> /home/toto/.ssh/authorized_keys
+    #  echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
+    #  SHELL
+    #end
+  end
+
+  config.vm.define "vm2" do |vm2|
+    vm2.vm.box = "generic/rocky9"
+    
+    vm2.vm.box_check_update = false
+    
+    vm2.vm.network "private_network", ip: "10.1.1.12"
+    
+    vm2.vm.synced_folder ".", "/vagrant", disabled: true
+
+    vm2.vm.provider "virtualbox" do |vb|
+
+      vb.gui = true
+
+      vb.memory = "1024"
+    end
+
+    vm2.vm.provision "shell", path: "setup.sh"
+
+    vm2.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/id_rsa.pub"
+
+    #vm2.vm.provision "shell" do |s|
+    #  ssh_pub_key = File.readlines("~/.ssh/id_rsa.pub").first.strip
+    #  s.inline = <<-SHELL
+    #  echo #{ssh_pub_key} >> /home/toto/.ssh/authorized_keys
+    #  echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
+    #  SHELL
+    #end
+  end
+
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # config.vm.network "public_network"
+
+  #config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  #config.vm.provider "virtualbox" do |vb|
+
+   # vb.gui = true
+    
+    #vb.memory = "1024"
+  #end
+  
+  #config.vm.provision "shell", path: "setup.sh"
+
+end
