@@ -1,0 +1,12 @@
+---
+- name: Deploy MariaDB server
+  hosts: db
+  become: true
+
+  tasks:
+  - name: Install MariaDB
+    dnf:
+      name: mariadb
+      state: present
+
+  - name: Create SQL user

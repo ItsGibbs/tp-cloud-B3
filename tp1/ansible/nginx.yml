@@ -9,14 +9,6 @@
       name: nginx
       state: present
 
-  - name: SSL certificate
-    openssl_certificate:
-      path: /etc/pki/tls/certs/server.crt
-      privatekey_path: /etc/pki/tls/private/server.key
-      provider: assertonly
-      subject:
-        CN: "{{ ansible_fqdn }}"
-
   - name: Create web root directory and index file
     file:
       path: /var/www/tp1_site/

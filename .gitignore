@@ -4,3 +4,5 @@ tp1/vagrant/id_rsa.pub
 tp1/vagrant/rocky-ynov.box
 tp1/vagrant/.vagrant/machines/vm1/virtualbox/private_key
 tp1/vagrant/.vagrant/machines/vm2/virtualbox/private_key
+tp1/ansible/server.key
+tp1/ansible/server.crt
