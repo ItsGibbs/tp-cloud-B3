@@ -1,12 +1,12 @@
-#users:
-#  - name: le_nain
-#    home: /home/le_nain
-#    group: ynov
-#
-#  - name: l_elfe
-#    home: /home/l_elfe
-#    group: ynov
-#
-#  - name: le_ranger
-#    home: /home/le_ranger
-#    group: ynov
+users:
+  - name: le_nain
+    home: /home/le_nain
+    group: ynov
+
+  - name: l_elfe
+    home: /home/l_elfe
+    group: ynov
+
+  - name: le_ranger
+    home: /home/le_ranger
+    group: ynov

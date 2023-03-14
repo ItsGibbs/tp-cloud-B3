@@ -1,11 +1,12 @@
-#- name: 
-#  ansible.builtin.user:
-#    name: {{ item.name }}
-#    state: present
-#    home: {{ item.home }}
-#    group: {{ item.group }}
-#
-#  with_items:
-#    - le_nain
-#    - l_elfe
-#    - le_ranger
+- name: Create groups
+  ansible.builtin.group:
+    name: ynov
+    state: present
+    
+- name: Create Users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    state: present
+    home: "{{ item.home }}"
+    group: "{{ item.group }}"
+  with_items: "{{ users }}"
