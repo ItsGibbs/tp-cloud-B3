@@ -1,0 +1,26 @@
+- name: Create webroot
+  file:
+    path: "{{ nginx_webroot }}"
+    state: directory
+
+- name: Create index
+  copy:
+    dest: "{{ nginx_webroot }}/index.html"
+    content: "{{ nginx_index_content }}"
+
+- name: NGINX Virtual Host
+  template:
+    src: vhost.conf.j2
+    dest: /etc/nginx/conf.d/{{ nginx_servername }}.conf
+
+vhosts:
+  - test2:
+    nginx_servername: test2
+    nginx_port: 8082
+    nginx_webroot: /var/www/html/test2
+    nginx_index_content: "<h1>teeeeeest 2</h1>"
+  - test3:
+    nginx_servername: test3
+    nginx_port: 8083
+    nginx_webroot: /var/www/html/test3
+    nginx_index_content: "<h1>teeeeeest 3</h1>"

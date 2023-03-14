@@ -1,4 +1,9 @@
-- name: Install Nginx
-    dnf:
-      name: nginx
-      state: present
+- name: Install nginx
+  dnf:
+    name: nginx
+    state: present
+
+- name: Start NGiNX
+  service:
+    name: nginx
+    state: started
