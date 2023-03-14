@@ -13,3 +13,4 @@ tp0/ansible/server.key
 tp0/vagrant/.vagrant/machines/default/virtualbox/private_key
 tp1/vagrant/.vagrant/machines/node1.tp1.cloud/virtualbox/private_key
 tp1/vagrant/.vagrant/machines/node2.tp1.cloud/virtualbox/private_key
+tp1/vagrant/.vagrant/
