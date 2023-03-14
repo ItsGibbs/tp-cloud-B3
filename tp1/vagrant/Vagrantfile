@@ -1,0 +1,54 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.define "node1.tp1.cloud" do |node1|
+    node1.vm.box = "generic/rocky9"
+    
+    node1.vm.box_check_update = false
+    
+    node1.vm.network "private_network", ip: "10.1.1.11"
+
+    node1.vm.hostname = "node1.tp1.cloud"
+    
+    node1.vm.synced_folder ".", "/vagrant", disabled: true
+
+    node1.vm.provider "virtualbox" do |vb|
+
+      vb.gui = true
+
+      vb.memory = "1024"
+    end
+
+    node1.vm.provision "shell", path: "setup.sh"
+
+    node1.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/id_rsa.pub"
+
+  end
+
+  config.vm.define "node2.tp1.cloud" do |node2|
+    node2.vm.box = "generic/rocky9"
+    
+    node2.vm.box_check_update = false
+    
+    node2.vm.network "private_network", ip: "10.1.1.12"
+
+    node2.vm.hostname = "node2.tp1.cloud"
+    
+    node2.vm.synced_folder ".", "/vagrant", disabled: true
+
+    node2.vm.provider "virtualbox" do |vb|
+
+      vb.gui = true
+
+      vb.memory = "1024"
+    end
+
+    node2.vm.provision "shell", path: "setup.sh"
+
+    node2.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/id_rsa.pub"
+
+  end
+
+end
