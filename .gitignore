@@ -16,3 +16,5 @@ tp1/vagrant/.vagrant/machines/node2.tp1.cloud/virtualbox/private_key
 tp1/vagrant/.vagrant/
 Rocky-8-GenericCloud-Base.latest.x86_64.qcow2
 tp2/rocky9.vdi
+tp2/vagrant/rocky9-cloud.box
+tp2/vagrant/.vagrant
