@@ -24,3 +24,20 @@ users:
     ssh_authorized_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDDBvwMUtBlwW03QRAZ6/twVfPJZWrr948aMUv6h7i75hoaM4heJ4bhhiKZ1LpFXckam9+YvVQi5pr2q/JlsJvx83hUps4J9qeORAXnkBeF2Zs+TQ0Ds6N9Sxb9DVLM1ew3WAom2+enzLPIvz9rU4acA2DCF7pfFRKiNgJFT1LBlNSMVorLAnSCnZk2x6uhB68R5W3Jo+5J6mUKrOULoxnv72vfg3Z6J5I3qLC+ZSfrOTr5u30bntDORDeU9FymSl1e+8gyRUNscZF3I7vzY9nCGUh88JK0YLnYu2h+Gx6CB87FMbTPcb4bnwUEPz+to05BsDF9Cp0D3D5+mLxiwhMbone7Imr37EoCchXaR8kOmIVDnd36a5bI3rhd9Gb2KzeT/d0VTQfyjcIUJCtxDxwtzo5bpyV9Pkzorr2FgWVKZz3kWG+bKP9cd0wBaH0BurD7lw59osDK7uh520DXi20GZm/LxDctaBVuFnGeEaSHSClWkoJVO9+5xkBduXYA1saSmy7NO4Czn0yyqdLj92gOMhNbzwG+IUxJPUgjBd0bsui37N0IWgvBdfyZPTYVVKnVjt/vsV4lU8s92la727y7qeRlbNnt+O0BxFtuaQvE/mWQzyxjrnfk7lUCZXpeMUVB+Z7Ho8sBdHhpez+OLltbFE8PIwh2akQw4kKGYalWFw== thepa@LAPTOP-FLEOPDHT
 
+#cloud-config
+packages_upgrade: true
+packages:
+  - ansible
+
+#cloud-config
+users:
+  - name: gibbs
+    gecos: le user de zinzin
+    primary_group: gibbs
+    groups: wheel
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+    passwd: $6$He.Ta1F9lTaVioG9$3v0OU0HLSg4ZbDN2Dd/BFFDgLTnQdSs0nsbiFRCgc/xUQdlp.eClbl0Jz7jyAOHLBHYAPURz6bDwQWe2oN9uI1 
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDDBvwMUtBlwW03QRAZ6/twVfPJZWrr948aMUv6h7i75hoaM4heJ4bhhiKZ1LpFXckam9+YvVQi5pr2q/JlsJvx83hUps4J9qeORAXnkBeF2Zs+TQ0Ds6N9Sxb9DVLM1ew3WAom2+enzLPIvz9rU4acA2DCF7pfFRKiNgJFT1LBlNSMVorLAnSCnZk2x6uhB68R5W3Jo+5J6mUKrOULoxnv72vfg3Z6J5I3qLC+ZSfrOTr5u30bntDORDeU9FymSl1e+8gyRUNscZF3I7vzY9nCGUh88JK0YLnYu2h+Gx6CB87FMbTPcb4bnwUEPz+to05BsDF9Cp0D3D5+mLxiwhMbone7Imr37EoCchXaR8kOmIVDnd36a5bI3rhd9Gb2KzeT/d0VTQfyjcIUJCtxDxwtzo5bpyV9Pkzorr2FgWVKZz3kWG+bKP9cd0wBaH0BurD7lw59osDK7uh520DXi20GZm/LxDctaBVuFnGeEaSHSClWkoJVO9+5xkBduXYA1saSmy7NO4Czn0yyqdLj92gOMhNbzwG+IUxJPUgjBd0bsui37N0IWgvBdfyZPTYVVKnVjt/vsV4lU8s92la727y7qeRlbNnt+O0BxFtuaQvE/mWQzyxjrnfk7lUCZXpeMUVB+Z7Ho8sBdHhpez+OLltbFE8PIwh2akQw4kKGYalWFw== thepa@LAPTOP-FLEOPDHT
