@@ -1,3 +1,5 @@
+#### Ping entre les deux VMs
+
 ```
 gibbs@b3-node1:~$ ping b3-node2
 PING b3-node2.120bvlftuafejjowv5nhgovpfc.bx.internal.cloudapp.net (10.0.2.5) 56(84) bytes of data.
@@ -11,7 +13,7 @@ PING b3-node2.120bvlftuafejjowv5nhgovpfc.bx.internal.cloudapp.net (10.0.2.5) 56(
 5 packets transmitted, 5 received, 0% packet loss, time 4007ms
 rtt min/avg/max/mdev = 1.007/1.878/3.495/0.940 ms
 ```
-
+#### SSH jump
 
 ```
 PS C:\Users\thepa> ssh -J gibbs@20.124.131.226 gibbs@10.0.2.5
