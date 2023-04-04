@@ -13,3 +13,4 @@ Rocky-8-GenericCloud-Base.latest.x86_64.qcow2
 tp2/rocky9.vdi
 tp2/vagrant/rocky9-cloud.box
 tp2/vagrant/.vagrant
+tp3/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.50.0/windows_386/terraform-provider-azurerm_v3.50.0_x5.exe
