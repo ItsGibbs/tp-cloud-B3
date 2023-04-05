@@ -2,3 +2,15 @@ common_packages:
   - vim
   - git
   - rsync
+
+  vhosts:
+  - test2:
+    nginx_servername: test2
+    nginx_port: 8082
+    nginx_webroot: /var/www/html/test2
+    nginx_index_content: "<h1>teeeeeest 2</h1>"
+  - test3:
+    nginx_servername: test3
+    nginx_port: 8083
+    nginx_webroot: /var/www/html/test3
+    nginx_index_content: "<h1>teeeeeest 3</h1>"
