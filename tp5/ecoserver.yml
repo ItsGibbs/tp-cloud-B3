@@ -1,0 +1,48 @@
+type: Microsoft.ContainerInstance/containerGroups
+apiVersion: 2019-12-01
+location: eastus
+name: ecoserver
+properties:
+  osType: Linux
+  volumes:
+  - name: eco-server-data
+  ipAddress:
+    type: Public
+    #dnsNameLabel:
+    ports:
+      - port: 3000
+        protocol: udp
+      - port: 3001
+        protocol: udp
+      - port: 3000
+        protocol: tcp
+      - port: 3001
+        protocol: tcp
+  containers:
+    - name: ecoserver
+      properties:
+        image: strangeloopgames/eco-game-server
+        environmentVariables:
+          - name: SERVER_NAME
+            value: b3-cloud-eco
+          - name: WORLD_NAME
+            value: ecocloud
+          - name: SERVER_PASS
+            value: azerty123
+        ports:
+          - port: 3000
+            protocol: udp
+          - port: 3000
+            protocol: tcp
+          - port: 3001
+            protocol: udp
+          - port: 3001
+            protocol: tcp
+        resources:
+          requests:
+            cpu: 2
+            memoryInGb: 4
+        volumeMounts:
+          - name: eco-server-data
+            mountPath: /config
+            
