@@ -1,0 +1,4 @@
+users:
+  - name: steam
+    home: /home/steam
+    group: steam

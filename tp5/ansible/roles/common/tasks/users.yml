@@ -1,0 +1,12 @@
+- name: Create groups
+  ansible.builtin.group:
+    name: steam
+    state: present
+    
+- name: Create Users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    state: present
+    home: "{{ item.home }}"
+    group: "{{ item.group }}"
+  with_items: "{{ users }}"

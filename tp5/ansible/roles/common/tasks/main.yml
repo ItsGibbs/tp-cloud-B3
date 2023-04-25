@@ -1,0 +1,5 @@
+- name: Install common packages
+  import_tasks: packages.yml
+
+- name: Create users
+  import_tasks: users.yml

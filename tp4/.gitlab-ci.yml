@@ -1,1 +1,7 @@
-hello
+stages: # on déclare la liste des stages utilisés dans toute la pipeline
+  - ynov_b3 # le nom des stages est arbitraire
+
+b3_echo_hello: # le nom des jobs est arbitraire aussi
+  stage: ynov_b3 # chaque job est dans un stage spécifique
+  script: # script permet de donner une liste de commande à exécuter
+    - echo "Hello, c ma premier pipelin ui"
