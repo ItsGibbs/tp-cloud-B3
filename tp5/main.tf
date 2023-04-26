@@ -71,9 +71,9 @@ resource "azurerm_linux_virtual_machine" "vm-b3-eco" {
   }
 
   source_image_reference {
-    publisher = "Debian"
-    offer     = "debian-10"
-    sku       = "10"
+    publisher = "debian"
+    offer     = "debian-11"
+    sku       = "11"
     version   = "latest"
   }
 }
