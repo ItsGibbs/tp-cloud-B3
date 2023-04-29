@@ -1,4 +1,0 @@
-- name: Install common packages
-  dnf:
-    name: "{{ common_packages }}"
-    state: present
